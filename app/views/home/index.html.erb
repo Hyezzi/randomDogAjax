@@ -1,0 +1,25 @@
+
+<div class = "border-box d-flex flex-column align-items-center">
+    <img class = "dog-image my-4" src = "https://i.pinimg.com/564x/a5/65/fa/a565faf866367209050dec50a054e28b.jpg">
+
+    <input class = "my-3 get-button" type = "button" value = "댕댕이 만나기"></input>
+
+</div>
+
+
+<script>
+    var siteURL = "https://dog.ceo/api/breeds/image/random";
+    $("input[type = button]").click(function(){
+        
+        var data = $.ajax(siteURL, {
+            dataType: "json",
+            success: function(){
+                console.log(jQuery.type(data.responseJSON));
+
+                var imgSrc = data.responseJSON.message;
+
+                $("img").attr("src",imgSrc);
+                }
+        });
+    });
+</script>
